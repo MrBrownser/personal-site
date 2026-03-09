@@ -42,7 +42,30 @@ html {
 body {
   background-color: var(--background);
   color: var(--foreground);
-  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@supports not (view-transition-name: root) {
+  body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+::view-transition-old(root) {
+  animation: none;
+  z-index: -1;
+}
+
+::view-transition-new(root) {
+  animation: ripple-expand 0.5s ease-in-out;
+}
+
+@keyframes ripple-expand {
+  from {
+    clip-path: circle(0% at var(--ripple-x) var(--ripple-y));
+  }
+  to {
+    clip-path: circle(150vmax at var(--ripple-x) var(--ripple-y));
+  }
 }
 
 @layer components {
