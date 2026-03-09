@@ -1,0 +1,119 @@
+---
+import { timeline } from "@/data/timeline";
+---
+
+<section id="career" class="scroll-mt-20 px-6 py-24 md:py-32" aria-label="Career timeline">
+  <div class="mx-auto max-w-5xl">
+    <div class="mb-16 flex items-center gap-4">
+      <div
+        class="flex h-10 w-10 items-center justify-center rounded-xl text-primary"
+        style="box-shadow: var(--neu-raised-sm)"
+      >
+        <span class="text-sm font-bold">02</span>
+      </div>
+      <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+        Career
+      </h2>
+    </div>
+
+    <div class="relative">
+      <div
+        class="timeline-line absolute left-6 top-0 h-full w-0.5 rounded-full md:left-1/2 md:-translate-x-px"
+      ></div>
+
+      <div class="flex flex-col gap-12">
+        {
+          timeline.map((entry, index) => {
+            const isLeft = index % 2 === 0;
+            return (
+              <div
+                class:list={[
+                  "timeline-item relative flex flex-col md:flex-row md:items-start",
+                ]}
+              >
+                <div
+                  class="absolute left-6 top-8 z-10 h-5 w-5 -translate-x-1/2 rounded-full bg-background md:left-1/2"
+                  style="box-shadow: var(--neu-raised-sm)"
+                >
+                  <div
+                    class:list={[
+                      "absolute inset-1.5 rounded-full",
+                      entry.type === "education" ? "bg-emerald-500" : "bg-primary",
+                    ]}
+                  />
+                </div>
+
+                <div
+                  class:list={[
+                    "w-full md:w-[calc(50%-2.5rem)]",
+                    isLeft ? "md:mr-auto md:pr-0 pl-14 md:pl-0 md:pr-8" : "md:ml-auto md:pl-0 pl-14 md:pl-8",
+                  ]}
+                >
+                  <div
+                    class="rounded-2xl bg-background p-6 md:p-8"
+                    style="box-shadow: var(--neu-raised)"
+                  >
+                    <span class="mb-2 inline-block text-xs font-semibold tracking-wide text-primary">
+                      {entry.date}
+                    </span>
+                    <h3 class="mb-1 text-lg font-bold text-foreground">
+                      {entry.title}
+                    </h3>
+                    <p class="mb-4 text-sm font-medium text-muted-foreground">
+                      {entry.organization}
+                    </p>
+                    <p class="mb-5 text-sm leading-relaxed text-muted-foreground">
+                      {entry.description}
+                    </p>
+                    {entry.tags && entry.tags.length > 0 && (
+                      <div class="flex flex-wrap gap-2">
+                        {entry.tags.map((tag) => (
+                          <span
+                            class="rounded-lg bg-background px-3 py-1.5 text-xs font-medium text-primary"
+                            style="box-shadow: var(--neu-inset)"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initTimeline() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("opacity-100", "translate-y-0");
+            entry.target.classList.remove("opacity-0", "translate-y-6");
+          }
+        });
+      },
+      { threshold: 0.15 },
+    );
+
+    document.querySelectorAll(".timeline-item").forEach((item) => {
+      item.classList.add(
+        "opacity-0",
+        "translate-y-6",
+        "transition-all",
+        "duration-700",
+        "ease-out",
+      );
+      observer.observe(item);
+    });
+  }
+
+  initTimeline();
+  document.addEventListener("astro:after-swap", initTimeline);
+</script>
