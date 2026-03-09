@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Default = light (v0 design). Dark mode via .dark on html */
+:root {
+  --background: #e0e5ec;
+  --foreground: #2d3436;
+  --muted-foreground: #636e72;
+  --primary: #0984e3;
+  --primary-foreground: #ffffff;
+  --neu-shadow-light: #ffffff;
+  --neu-shadow-dark: #a3b1c6;
+  --neu-raised: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+  --neu-raised-sm: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+  --neu-inset: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+  --neu-flat: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light);
+  --neu-timeline-line: #8a9baa;
+  --neu-timeline-shadow: 1px 1px 2px var(--neu-shadow-dark), -1px -1px 2px var(--neu-shadow-light);
+}
+
+.dark {
+  --background: #2d3436;
+  --foreground: #dfe6e9;
+  --muted-foreground: #b2bec3;
+  --primary: #74b9ff;
+  --primary-foreground: #ffffff;
+  --neu-shadow-light: #3d4a4d;
+  --neu-shadow-dark: #1e2526;
+  --neu-raised: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+  --neu-raised-sm: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+  --neu-inset: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+  --neu-flat: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light);
+  --neu-timeline-line: #5f6f7a;
+  --neu-timeline-shadow: 1px 1px 2px var(--neu-shadow-dark), -1px -1px 2px var(--neu-shadow-light);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@layer components {
+  .neu-card {
+    @apply rounded-xl bg-background;
+    box-shadow: var(--neu-raised);
+  }
+
+  .neu-card-sm {
+    @apply rounded-xl bg-background;
+    box-shadow: var(--neu-raised-sm);
+  }
+
+  .neu-inset {
+    @apply rounded-xl bg-background;
+    box-shadow: var(--neu-inset);
+  }
+
+  .neu-btn {
+    @apply rounded-xl bg-background px-6 py-3 font-medium text-foreground outline-none transition-all duration-200 ease-in-out;
+    box-shadow: var(--neu-raised-sm);
+  }
+  .neu-btn:hover {
+    box-shadow: var(--neu-flat);
+  }
+  .neu-btn:active {
+    box-shadow: var(--neu-inset);
+  }
+
+  .neu-input {
+    @apply rounded-xl bg-background px-4 py-3 text-foreground outline-none transition-shadow duration-200 placeholder:text-muted-foreground;
+    box-shadow: var(--neu-inset);
+  }
+  .neu-input:focus {
+    box-shadow: var(--neu-raised-sm);
+  }
+
+  .timeline-line {
+    background-color: var(--neu-timeline-line);
+    box-shadow: var(--neu-timeline-shadow);
+  }
+
+  .timeline-dot {
+    box-shadow:
+      0 0 0 4px var(--background),
+      var(--neu-raised-sm);
+  }
+}
