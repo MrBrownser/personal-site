@@ -41,11 +41,6 @@ const {
   </head>
   <body class="min-h-screen bg-background font-sans text-foreground antialiased">
     <Nav />
-    <main>
-      <slot />
-    </main>
-    <footer class="py-8 text-center text-sm text-neu-text-secondary">
-      <p>&copy; {new Date().getFullYear()} Adrià Castany Serrano</p>
-    </footer>
+    <slot />
   </body>
 </html>
