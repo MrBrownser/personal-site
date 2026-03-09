@@ -1,0 +1,147 @@
+---
+const links = [
+  { href: "#about", label: "About" },
+  { href: "#career", label: "Career" },
+  { href: "#how-i-work", label: "How I Work" },
+  { href: "#contact", label: "Contact" },
+];
+---
+
+<header
+  class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md"
+  role="navigation"
+  aria-label="Main navigation"
+>
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="#hero" class="text-lg font-bold tracking-tight text-foreground">
+      AC
+    </a>
+
+    <ul class="hidden items-center gap-8 md:flex">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="text-sm font-medium tracking-wide text-muted-foreground transition-colors hover:text-primary"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="hidden items-center gap-4 md:flex">
+      <button
+        id="theme-toggle"
+        class="flex h-10 w-10 items-center justify-center rounded-xl text-foreground transition-colors hover:text-primary"
+        style="box-shadow: var(--neu-raised-sm)"
+        aria-label="Toggle theme"
+      >
+        <span class="theme-icon-sun hidden" aria-hidden="true">☀️</span>
+        <span class="theme-icon-moon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+
+    <button
+      id="mobile-menu-btn"
+      class="flex h-10 w-10 items-center justify-center rounded-xl md:hidden"
+      style="box-shadow: var(--neu-raised-sm)"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5 text-foreground"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </button>
+  </nav>
+
+  <div
+    id="mobile-menu"
+    class="hidden flex-col border-none bg-background px-6 pb-6 md:hidden"
+  >
+    <ul class="flex flex-col gap-4">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="mobile-link block rounded-xl px-4 py-3 text-sm font-medium text-foreground transition-all hover:text-primary"
+              style="box-shadow: var(--neu-raised-sm)"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <button
+      id="theme-toggle-mobile"
+      class="mt-2 w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-foreground"
+      style="box-shadow: var(--neu-raised-sm)"
+      aria-label="Toggle theme"
+    >
+      <span class="theme-icon-sun hidden">☀️ Light</span>
+      <span class="theme-icon-moon">🌙 Dark</span>
+    </button>
+  </div>
+</header>
+
+<script>
+  function initNav() {
+    const root = document.documentElement;
+
+    function applyThemeIcons() {
+      const isDark = root.classList.contains("dark");
+      document.querySelectorAll(".theme-icon-sun").forEach((el) => {
+        (el as HTMLElement).style.display = isDark ? "inline" : "none";
+      });
+      document.querySelectorAll(".theme-icon-moon").forEach((el) => {
+        (el as HTMLElement).style.display = isDark ? "none" : "inline";
+      });
+    }
+
+    function toggleTheme() {
+      root.classList.toggle("dark");
+      const isDark = root.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      applyThemeIcons();
+    }
+
+    document.getElementById("theme-toggle")?.addEventListener("click", toggleTheme);
+    document.getElementById("theme-toggle-mobile")?.addEventListener("click", toggleTheme);
+
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    mobileMenuBtn?.addEventListener("click", () => {
+      const isOpen = mobileMenu?.classList.contains("flex");
+      mobileMenu?.classList.toggle("hidden", isOpen);
+      mobileMenu?.classList.toggle("flex", !isOpen);
+    });
+
+    mobileMenu?.querySelectorAll(".mobile-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu?.classList.add("hidden");
+        mobileMenu?.classList.remove("flex");
+      });
+    });
+
+    applyThemeIcons();
+  }
+
+  initNav();
+  document.addEventListener("astro:after-swap", initNav);
+</script>
