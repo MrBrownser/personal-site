@@ -1,0 +1,51 @@
+---
+import "@fontsource-variable/inter";
+import "@/styles/global.css";
+import Nav from "@/components/Nav.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Adrià Castany Serrano — Head of Product & Tech",
+  description = "Personal site of Adrià Castany Serrano. Head of Product & Tech, builder, learner. From software developer to product leader.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>{title}</title>
+
+    <script is:inline>
+      const theme = localStorage.getItem("theme");
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+  </head>
+  <body class="min-h-screen bg-background font-sans text-foreground antialiased">
+    <Nav />
+    <main>
+      <slot />
+    </main>
+    <footer class="py-8 text-center text-sm text-neu-text-secondary">
+      <p>&copy; {new Date().getFullYear()} Adrià Castany Serrano</p>
+    </footer>
+  </body>
+</html>
