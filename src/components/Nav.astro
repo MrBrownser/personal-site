@@ -102,9 +102,12 @@ const links = [
 <script>
   function initNav() {
     const root = document.documentElement;
+    const THEME_KEY = "theme";
+    const DARK = "dark";
+    const LIGHT = "light";
 
     function applyThemeIcons() {
-      const isDark = root.classList.contains("dark");
+      const isDark = root.classList.contains(DARK);
       document.querySelectorAll(".theme-icon-sun").forEach((el) => {
         (el as HTMLElement).style.display = isDark ? "inline" : "none";
       });
@@ -113,11 +116,28 @@ const links = [
       });
     }
 
-    function toggleTheme() {
-      root.classList.toggle("dark");
-      const isDark = root.classList.contains("dark");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-      applyThemeIcons();
+    function toggleTheme(event: Event) {
+      const button = event.currentTarget as HTMLElement;
+      const rect = button.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+
+      root.style.setProperty("--ripple-x", `${x}px`);
+      root.style.setProperty("--ripple-y", `${y}px`);
+
+      const applyToggle = () => {
+        root.classList.toggle(DARK);
+        const isDark = root.classList.contains(DARK);
+        localStorage.setItem(THEME_KEY, isDark ? DARK : LIGHT);
+        applyThemeIcons();
+      };
+
+      if (!document.startViewTransition) {
+        applyToggle();
+        return;
+      }
+
+      document.startViewTransition(applyToggle);
     }
 
     document.getElementById("theme-toggle")?.addEventListener("click", toggleTheme);
