@@ -1,5 +1,7 @@
 ---
-const hasAvatar = false; // set true if public/images/avatar.jpg is added
+import { siteData } from "@/lib/getSiteData";
+
+const h = siteData.hero;
 ---
 
 <section
@@ -8,7 +10,6 @@ const hasAvatar = false; // set true if public/images/avatar.jpg is added
   aria-label="Hero"
 >
   <div class="flex flex-col items-center gap-10 text-center">
-    <!-- Avatar: neumorphic frame -->
     <div
       class="rounded-full p-3"
       style="box-shadow: var(--neu-raised)"
@@ -17,10 +18,10 @@ const hasAvatar = false; // set true if public/images/avatar.jpg is added
         class="overflow-hidden rounded-full"
         style="box-shadow: var(--neu-inset)"
       >
-        {hasAvatar ? (
+        {h.hasAvatar ? (
           <img
             src="/images/avatar.jpg"
-            alt="Portrait of Adrià Castany Serrano"
+            alt={h.portraitAlt}
             width="180"
             height="180"
             class="h-36 w-36 rounded-full object-cover md:h-44 md:w-44"
@@ -31,7 +32,7 @@ const hasAvatar = false; // set true if public/images/avatar.jpg is added
             class="flex h-36 w-36 items-center justify-center rounded-full bg-background text-3xl font-bold text-primary md:h-44 md:w-44 md:text-4xl"
             aria-hidden="true"
           >
-            AC
+            {h.avatarInitials}
           </span>
         )}
       </div>
@@ -39,13 +40,13 @@ const hasAvatar = false; // set true if public/images/avatar.jpg is added
 
     <div class="flex flex-col items-center gap-4">
       <h1 class="text-balance text-5xl font-extrabold tracking-tight text-foreground md:text-7xl lg:text-8xl">
-        Adrià Castany Serrano
+        {h.name}
       </h1>
       <p class="max-w-lg text-pretty text-lg font-medium tracking-wide text-muted-foreground md:text-xl">
-        Head of Product &amp; Tech. Builder. Learner.
+        {h.tagline}
       </p>
       <p class="max-w-md text-pretty text-base leading-relaxed text-muted-foreground/80">
-        Bridging technology, product strategy, and teams that never stop learning.
+        {h.subtagline}
       </p>
     </div>
 
@@ -55,14 +56,14 @@ const hasAvatar = false; // set true if public/images/avatar.jpg is added
         class="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 text-sm font-semibold text-primary-foreground transition-all active:scale-[0.97]"
         style="box-shadow: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light)"
       >
-        Explore My Journey
+        {h.primaryCta}
       </a>
       <a
         href="#contact"
         class="inline-flex items-center gap-2 rounded-xl bg-background px-8 py-3.5 text-sm font-semibold text-foreground transition-all active:scale-[0.97]"
         style="box-shadow: var(--neu-raised-sm)"
       >
-        Get In Touch
+        {h.secondaryCta}
       </a>
     </div>
   </div>

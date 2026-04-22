@@ -1,5 +1,10 @@
 ---
+import { siteData } from "@/lib/getSiteData";
+
+const a = siteData.about;
+const rp = a.roleParagraph;
 ---
+
 <section id="about" class="scroll-mt-20 px-6 py-24 md:py-32" aria-label="About me">
   <div class="mx-auto max-w-5xl">
     <div class="mb-12 flex items-center gap-4">
@@ -7,7 +12,7 @@
         class="flex h-10 w-10 items-center justify-center rounded-xl text-primary"
         style="box-shadow: var(--neu-raised-sm)"
       >
-        <span class="text-sm font-bold">01</span>
+        <span class="text-sm font-bold">{a.sectionNumber}</span>
       </div>
       <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
         About
@@ -19,38 +24,32 @@
       style="box-shadow: var(--neu-raised)"
     >
       <h3 class="mb-6 text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-        Bridging technology &amp; <span class="text-primary">product strategy</span>.
+        {a.cardHeadlineBefore}
+        <span class="text-primary">{a.cardHeadlineHighlight}</span>
+        {a.cardHeadlineAfter}
       </h3>
       <div class="flex flex-col gap-4 text-base leading-relaxed text-muted-foreground">
-        <p>
-          With over a decade in software development and product management, I
-          thrive at the intersection of technology, user experience, and business
-          strategy. My career has taken me from data migrations and
-          telecommunications engineering through a deliberate pivot into web
-          development — and eventually into leading product and tech for a
-          successful Norwegian e-learning company.
-        </p>
-        <p>
-          I recently completed a Master's in Digital Product Management at Nuclio
-          Digital School, deepening my understanding of how to shape products that
-          create real value. But I've always been a product developer at heart —
-          motivated by solving problems, not obsessed with coding literature and
-          best practices for their own sake.
-        </p>
-        <p>
-          Today, as Head of Product and Tech at
-          <a
-            href="https://videocation.no"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-primary transition-colors hover:underline"
-          >
-            Videocation.no</a
-          >, I lead the vision and execution of a platform that helps thousands of
-          professionals learn and grow. I believe the best technology serves people
-          — and the best teams are the ones that never stop learning how to serve
-          them better.
-        </p>
+        {a.paragraphs.map((p) => <p>{p}</p>)}
+        {
+          rp && (
+            <p>
+              {rp.beforeRole}
+              {rp.role}
+              {" "}
+              {rp.atCompany}
+              {" "}
+              <a
+                href={rp.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-primary transition-colors hover:underline"
+              >
+                {rp.companyName}
+              </a>
+              {rp.after}
+            </p>
+          )
+        }
       </div>
     </div>
   </div>

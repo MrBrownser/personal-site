@@ -1,5 +1,8 @@
 ---
-import { timeline } from "@/data/timeline";
+import { siteData } from "@/lib/getSiteData";
+
+const { timeline, career } = siteData;
+const sectionNumber = career.sectionNumber;
 ---
 
 <section id="career" class="scroll-mt-20 px-6 py-24 md:py-32" aria-label="Career timeline">
@@ -9,7 +12,7 @@ import { timeline } from "@/data/timeline";
         class="flex h-10 w-10 items-center justify-center rounded-xl text-primary"
         style="box-shadow: var(--neu-raised-sm)"
       >
-        <span class="text-sm font-bold">02</span>
+        <span class="text-sm font-bold">{sectionNumber}</span>
       </div>
       <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
         Career

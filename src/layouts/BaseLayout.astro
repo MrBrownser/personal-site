@@ -2,16 +2,16 @@
 import "@fontsource-variable/inter";
 import "@/styles/global.css";
 import Nav from "@/components/Nav.astro";
+import { siteData } from "@/lib/getSiteData";
 
-interface Props {
+export interface Props {
   title?: string;
   description?: string;
 }
 
-const {
-  title = "Adrià Castany Serrano — Head of Product & Tech",
-  description = "Personal site of Adrià Castany Serrano. Head of Product & Tech, builder, learner. From software developer to product leader.",
-} = Astro.props;
+const { pageTitle, pageDescription } = siteData.meta;
+const title = Astro.props.title ?? pageTitle;
+const description = Astro.props.description ?? pageDescription;
 ---
 
 <!doctype html>

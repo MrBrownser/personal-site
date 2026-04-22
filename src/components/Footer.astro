@@ -1,5 +1,10 @@
 ---
+import { siteData } from "@/lib/getSiteData";
+
+const { note, copyrightName } = siteData.footer;
+const year = new Date().getFullYear();
 ---
+
 <footer class="px-6 pb-10 pt-4">
   <div class="mx-auto max-w-5xl">
     <div
@@ -7,7 +12,7 @@
       style="box-shadow: var(--neu-inset)"
     >
       <p class="text-xs text-muted-foreground">
-        Crafted with care. © 2026 Adrià Castany Serrano.
+        {note} © {year} {copyrightName}.
       </p>
       <nav aria-label="Footer navigation">
         <ul class="flex gap-6">

@@ -5,3 +5,5 @@ docs/
 .DS_Store
 *.env
 *.env.*
+# Personal copy — fork `site-content.example.json` to `site-content.json` locally
+site-content.json

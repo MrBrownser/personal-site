@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "siteUrl": "https://mattmurdock.github.io",
+    "pageTitle": "Matt Murdock — Attorney at Law",
+    "pageDescription": "Matt Murdock's portfolio. Lawyer by day, builder by night. Experience at Acme Inc., Evil Corp, and more."
+  },
+  "brand": {
+    "navInitials": "MM"
+  },
+  "career": {
+    "sectionNumber": "02"
+  },
+  "hero": {
+    "hasAvatar": false,
+    "name": "Matt Murdock",
+    "portraitAlt": "Portrait of Matt Murdock",
+    "avatarInitials": "MM",
+    "tagline": "Attorney. Builder. Advocate.",
+    "subtagline": "Bridging justice, technology, and teams that fight for what's right.",
+    "primaryCta": "Explore My Journey",
+    "secondaryCta": "Get In Touch"
+  },
+  "about": {
+    "sectionNumber": "01",
+    "cardHeadlineBefore": "Bridging the law & ",
+    "cardHeadlineHighlight": "justice",
+    "cardHeadlineAfter": ".",
+    "paragraphs": [
+      "With over a decade between courtrooms, startups, and late-night code reviews, I work where ethics, product sense, and execution meet. My path started with civil litigation support at Acme Inc., then took a sharp turn through risk and compliance at Evil Corp, where I saw firsthand how systems fail people — and how to fix them.",
+      "I completed advanced studies in digital strategy, focusing on how organizations ship responsible products. I'm motivated by outcomes for real people, not slides or buzzwords."
+    ],
+    "roleParagraph": {
+      "beforeRole": "Today, as ",
+      "role": "managing partner",
+      "atCompany": "at",
+      "companyName": "Nelson and Murdock",
+      "companyUrl": "https://example.com",
+      "after": ", I represent clients pro bono when it matters, and I build the tools that make our small firm punch above its weight. I believe the best services meet people where they are — and the best teams never stop learning how to do better."
+    }
+  },
+  "timeline": [
+    {
+      "date": "2004 – 2008",
+      "title": "Juris Doctor",
+      "organization": "Columbia Law (illustrative)",
+      "description": "Foundation in law, evidence, and trial practice — plus a lot of reading in the dark.",
+      "type": "education"
+    },
+    {
+      "date": "2008 – 2011",
+      "title": "Legal Data Analyst",
+      "organization": "Acme Inc.",
+      "description": "First professional chapter. Organized case discovery, built internal trackers, and learned how enterprises actually work.",
+      "type": "work",
+      "tags": ["Research", "Compliance"]
+    },
+    {
+      "date": "2011 – 2012",
+      "title": "Pro Bono & Appellate Clinic",
+      "organization": "Hell's Kitchen Community Legal Aid",
+      "description": "Evening work representing neighbors who could not afford representation. The work that made the long hours feel honest.",
+      "type": "education"
+    },
+    {
+      "date": "2012 – 2016",
+      "title": "Corporate Counsel (Contracts)",
+      "organization": "Evil Corp",
+      "description": "High-profile employer with questionable ethics. Negotiated vendor and data agreements, pushed back on overreach, and left when the mission no longer matched the values.",
+      "type": "work",
+      "tags": ["Contracts", "Risk", "Data"]
+    },
+    {
+      "date": "2016 – Present",
+      "title": "Attorney & Co-founder",
+      "organization": "Nelson and Murdock",
+      "description": "Built a client-first practice with friends. By day, trials and strategy; by night, shipping the internal tools that keep cases organized.",
+      "type": "work",
+      "tags": ["Litigation", "Product", "Pro Bono"]
+    }
+  ],
+  "howIWork": {
+    "sectionNumber": "03",
+    "cardHeadlineBefore": "Clarity & ",
+    "cardHeadlineHighlight": "relentless prep",
+    "cardHeadlineAfter": ".",
+    "paragraphs": [
+      "I prepare like the unexpected will happen — because it will. I use plain language, tight timelines, and checklists that survive bad Wi‑Fi and worse surprises.",
+      "I collaborate like the outcome depends on the whole team — because it does. That means clear briefs, honest tradeoffs, and no mystique about what we're shipping next."
+    ],
+    "quote": "The best brief is the one that makes the next step obvious.",
+    "closingParagraphs": [
+      "I do not just practice this myself — I expect it from co-counsel, vendors, and clients. We win when everyone knows what 'done' means.",
+      "Law and software both reward people who can adapt without losing the plot."
+    ]
+  },
+  "contact": {
+    "sectionNumber": "04",
+    "headlineBefore": "Let's build something ",
+    "headlineHighlight": "together",
+    "headlineAfter": ".",
+    "blurb": "Whether you have a case, a product idea, or you just need someone who has seen messy systems from the inside — I'd like to hear from you.",
+    "cta": "Email me",
+    "email": "matt.murdock@example.com",
+    "socials": [
+      {
+        "href": "https://www.linkedin.com/in/example",
+        "label": "LinkedIn",
+        "icon": "linkedin"
+      },
+      {
+        "href": "https://github.com/example",
+        "label": "GitHub",
+        "icon": "github"
+      },
+      {
+        "href": "https://twitter.com/example",
+        "label": "Twitter / X",
+        "icon": "twitter"
+      }
+    ]
+  },
+  "footer": {
+    "note": "Crafted with care.",
+    "copyrightName": "Matt Murdock"
+  }
+}
