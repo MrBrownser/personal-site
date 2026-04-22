@@ -1,7 +1,7 @@
 ---
 import { siteData } from "@/lib/getSiteData";
 
-const { note, copyrightName } = siteData.footer;
+const { footer } = siteData;
 const year = new Date().getFullYear();
 ---
 
@@ -12,7 +12,7 @@ const year = new Date().getFullYear();
       style="box-shadow: var(--neu-inset)"
     >
       <p class="text-xs text-muted-foreground">
-        {note} © {year} {copyrightName}.
+        {footer.note} © {year} {footer.copyrightName}.
       </p>
       <nav aria-label="Footer navigation">
         <ul class="flex gap-6">

@@ -9,9 +9,9 @@ export interface Props {
   description?: string;
 }
 
-const { pageTitle, pageDescription } = siteData.meta;
-const title = Astro.props.title ?? pageTitle;
-const description = Astro.props.description ?? pageDescription;
+const { meta } = siteData;
+const title = Astro.props.title ?? meta.pageTitle;
+const description = Astro.props.description ?? meta.pageDescription;
 ---
 
 <!doctype html>

@@ -1,7 +1,7 @@
 ---
 import { siteData } from "@/lib/getSiteData";
 
-const h = siteData.howIWork;
+const { howIWork } = siteData;
 ---
 
 <section id="how-i-work" class="scroll-mt-20 px-6 py-24 md:py-32" aria-label="How I Work">
@@ -11,7 +11,7 @@ const h = siteData.howIWork;
         class="flex h-10 w-10 items-center justify-center rounded-xl text-primary"
         style="box-shadow: var(--neu-raised-sm)"
       >
-        <span class="text-sm font-bold">{h.sectionNumber}</span>
+        <span class="text-sm font-bold">{howIWork.sectionNumber}</span>
       </div>
       <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
         How I Work
@@ -23,13 +23,13 @@ const h = siteData.howIWork;
       style="box-shadow: var(--neu-raised)"
     >
       <h3 class="mb-6 text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-        {h.cardHeadlineBefore}
-        <span class="text-primary">{h.cardHeadlineHighlight}</span>
-        {h.cardHeadlineAfter}
+        {howIWork.cardHeadlineBefore}
+        <span class="text-primary">{howIWork.cardHeadlineHighlight}</span>
+        {howIWork.cardHeadlineAfter}
       </h3>
 
       <div class="flex flex-col gap-4 text-base leading-relaxed text-muted-foreground">
-        {h.paragraphs.map((p) => <p>{p}</p>)}
+        {howIWork.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
       </div>
 
       <div
@@ -37,12 +37,12 @@ const h = siteData.howIWork;
         style="box-shadow: var(--neu-inset)"
       >
         <blockquote class="text-center text-lg font-medium italic text-foreground">
-          {h.quote}
+          {howIWork.quote}
         </blockquote>
       </div>
 
       <div class="flex flex-col gap-4 text-base leading-relaxed text-muted-foreground">
-        {h.closingParagraphs.map((p) => <p>{p}</p>)}
+        {howIWork.closingParagraphs.map((paragraph) => <p>{paragraph}</p>)}
       </div>
     </div>
   </div>

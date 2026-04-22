@@ -1,8 +1,8 @@
 ---
 import { siteData } from "@/lib/getSiteData";
 
-const a = siteData.about;
-const rp = a.roleParagraph;
+const { about } = siteData;
+const { roleParagraph } = about;
 ---
 
 <section id="about" class="scroll-mt-20 px-6 py-24 md:py-32" aria-label="About me">
@@ -12,7 +12,7 @@ const rp = a.roleParagraph;
         class="flex h-10 w-10 items-center justify-center rounded-xl text-primary"
         style="box-shadow: var(--neu-raised-sm)"
       >
-        <span class="text-sm font-bold">{a.sectionNumber}</span>
+        <span class="text-sm font-bold">{about.sectionNumber}</span>
       </div>
       <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
         About
@@ -24,29 +24,29 @@ const rp = a.roleParagraph;
       style="box-shadow: var(--neu-raised)"
     >
       <h3 class="mb-6 text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-        {a.cardHeadlineBefore}
-        <span class="text-primary">{a.cardHeadlineHighlight}</span>
-        {a.cardHeadlineAfter}
+        {about.cardHeadlineBefore}
+        <span class="text-primary">{about.cardHeadlineHighlight}</span>
+        {about.cardHeadlineAfter}
       </h3>
       <div class="flex flex-col gap-4 text-base leading-relaxed text-muted-foreground">
-        {a.paragraphs.map((p) => <p>{p}</p>)}
+        {about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
         {
-          rp && (
+          roleParagraph && (
             <p>
-              {rp.beforeRole}
-              {rp.role}
+              {roleParagraph.beforeRole}
+              {roleParagraph.role}
               {" "}
-              {rp.atCompany}
+              {roleParagraph.atCompany}
               {" "}
               <a
-                href={rp.companyUrl}
+                href={roleParagraph.companyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="text-primary transition-colors hover:underline"
               >
-                {rp.companyName}
+                {roleParagraph.companyName}
               </a>
-              {rp.after}
+              {roleParagraph.after}
             </p>
           )
         }

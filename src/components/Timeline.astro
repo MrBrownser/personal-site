@@ -1,8 +1,7 @@
 ---
 import { siteData } from "@/lib/getSiteData";
 
-const { timeline, career } = siteData;
-const sectionNumber = career.sectionNumber;
+const { career, timeline } = siteData;
 ---
 
 <section id="career" class="scroll-mt-20 px-6 py-24 md:py-32" aria-label="Career timeline">
@@ -12,7 +11,7 @@ const sectionNumber = career.sectionNumber;
         class="flex h-10 w-10 items-center justify-center rounded-xl text-primary"
         style="box-shadow: var(--neu-raised-sm)"
       >
-        <span class="text-sm font-bold">{sectionNumber}</span>
+        <span class="text-sm font-bold">{career.sectionNumber}</span>
       </div>
       <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
         Career
@@ -26,7 +25,7 @@ const sectionNumber = career.sectionNumber;
 
       <div class="flex flex-col gap-12">
         {
-          timeline.map((entry, index) => {
+          timeline.map((timelineEntry, index) => {
             const isLeft = index % 2 === 0;
             return (
               <div
@@ -41,7 +40,7 @@ const sectionNumber = career.sectionNumber;
                   <div
                     class:list={[
                       "absolute inset-1.5 rounded-full",
-                      entry.type === "education" ? "bg-emerald-500" : "bg-primary",
+                      timelineEntry.type === "education" ? "bg-emerald-500" : "bg-primary",
                     ]}
                   />
                 </div>
@@ -57,20 +56,20 @@ const sectionNumber = career.sectionNumber;
                     style="box-shadow: var(--neu-raised)"
                   >
                     <span class="mb-2 inline-block text-xs font-semibold tracking-wide text-primary">
-                      {entry.date}
+                      {timelineEntry.date}
                     </span>
                     <h3 class="mb-1 text-lg font-bold text-foreground">
-                      {entry.title}
+                      {timelineEntry.title}
                     </h3>
                     <p class="mb-4 text-sm font-medium text-muted-foreground">
-                      {entry.organization}
+                      {timelineEntry.organization}
                     </p>
                     <p class="mb-5 text-sm leading-relaxed text-muted-foreground">
-                      {entry.description}
+                      {timelineEntry.description}
                     </p>
-                    {entry.tags && entry.tags.length > 0 && (
+                    {timelineEntry.tags && timelineEntry.tags.length > 0 && (
                       <div class="flex flex-wrap gap-2">
-                        {entry.tags.map((tag) => (
+                        {timelineEntry.tags.map((tag) => (
                           <span
                             class="rounded-lg bg-background px-3 py-1.5 text-xs font-medium text-primary"
                             style="box-shadow: var(--neu-inset)"

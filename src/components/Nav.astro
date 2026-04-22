@@ -7,7 +7,7 @@ const links = [
   { href: "#how-i-work", label: "How I Work" },
   { href: "#contact", label: "Contact" },
 ];
-const { navInitials } = siteData.brand;
+const { brand } = siteData;
 ---
 
 <header
@@ -17,7 +17,7 @@ const { navInitials } = siteData.brand;
 >
   <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
     <a href="#hero" class="text-lg font-bold tracking-tight text-foreground">
-      {navInitials}
+      {brand.navInitials}
     </a>
 
     <ul class="hidden items-center gap-8 md:flex">

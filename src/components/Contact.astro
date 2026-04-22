@@ -1,7 +1,7 @@
 ---
 import { siteData } from "@/lib/getSiteData";
 
-const c = siteData.contact;
+const { contact } = siteData;
 ---
 
 <section id="contact" class="scroll-mt-20 px-6 py-24 md:py-32" aria-label="Contact">
@@ -11,7 +11,7 @@ const c = siteData.contact;
         class="flex h-10 w-10 items-center justify-center rounded-xl text-primary"
         style="box-shadow: var(--neu-raised-sm)"
       >
-        <span class="text-sm font-bold">{c.sectionNumber}</span>
+        <span class="text-sm font-bold">{contact.sectionNumber}</span>
       </div>
       <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
         Contact
@@ -21,27 +21,27 @@ const c = siteData.contact;
     <div class="flex flex-col gap-10 lg:flex-row lg:gap-16">
       <div class="flex flex-1 flex-col gap-6">
         <h3 class="text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-          {c.headlineBefore}
-          <span class="text-primary">{c.headlineHighlight}</span>
-          {c.headlineAfter}
+          {contact.headlineBefore}
+          <span class="text-primary">{contact.headlineHighlight}</span>
+          {contact.headlineAfter}
         </h3>
         <p class="max-w-md text-base leading-relaxed text-muted-foreground">
-          {c.blurb}
+          {contact.blurb}
         </p>
 
         <p class="pt-2">
           <a
-            href={`mailto:${c.email}`}
+            href={`mailto:${contact.email}`}
             class="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all active:scale-[0.97]"
             style="box-shadow: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light)"
           >
-            {c.cta}
+            {contact.cta}
           </a>
         </p>
 
         <div class="flex gap-4 pt-4">
           {
-            c.socials.map((social) => (
+            contact.socials.map((social) => (
               <a
                 href={social.href}
                 target="_blank"
